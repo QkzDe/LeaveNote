@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>请假条</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .loader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .loader span {
+        width: 15px;
+        height: 30px;
+        margin-top: 30px;
+        margin-left: 5px;
+        display: block;
+      }
+      .loader span {
+        background-color: #8d4bbb;
+        animation: pop 1.3s ease-in-out infinite;
+        animation-delay: calc(var(--x) * 0.1s);
+      }
+
+      @keyframes pop {
+        0% {
+          height: 30px;
+          margin-top: 30px;
+        }
+        19% {
+          height: 60px;
+          margin-top: 15px;
+        }
+        38% {
+          height: 30px;
+          margin-top: 30px;
+        }
+        100% {
+          height: 30px;
+          margin-top: 30px;
+        }
+      }
+
+      .head {
+        height: 10vm;
+        background-color: #8d4bbb;
+        padding: 10px;
+        font-size: 20px;
+        color: white;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      span:first-child {
+        font-weight: bold;
+      }
+      p {
+        margin: 5px;
+      }
+      .back {
+        padding: 10px;
+        background-color: rgb(64, 158, 255);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">请假条-已通过</div>
+    <div class="info">
+      <p><span>姓名：</span><span>黄智康(2020010438)</span></p>
+      <p><span>学院：</span><span>计算机科学与工程学院</span></p>
+      <p><span>专业：</span><span>电子信息工程</span></p>
+      <p><span>开始时间：</span><span id="start"></span></p>
+      <p><span>结束时间：</span><span id="end"></span></p>
+      <p><span>请假理由：</span><span>外出吃饭</span></p>
+      <p><span>去向地址：</span><span>桂林市内</span></p>
+    </div>
+
+    <div class="back">返校销假</div>
+
+    <div class="loader">
+      <span class="cube" style="--x: 0"></span>
+      <span class="cube" style="--x: 1"></span>
+      <span class="cube" style="--x: 2"></span>
+      <span class="cube" style="--x: 3"></span>
+      <span class="cube" style="--x: 4"></span>
+      <span class="cube" style="--x: 5"></span>
+      <span class="cube" style="--x: 6"></span>
+      <span class="cube" style="--x: 7"></span>
+      <span class="cube" style="--x: 8"></span>
+    </div>
+  </body>
+  <script>
+    var date = new Date();
+    document.getElementById("start").innerHTML =
+      date.toLocaleDateString() + "  " + date.getHours() + ":00";
+    document.getElementById("end").innerHTML =
+      date.toLocaleDateString() +
+      "  " +
+      (date.getHours() + 5 >= 24
+        ? date.getHours() + 5 - 24
+        : date.getHours() + 5) +
+      ":00";
+  </script>
+</html>
